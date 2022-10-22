@@ -11,3 +11,6 @@ class MovieList(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['category_id', 'release_type']
     search_fields = ['name', 'description']
+class MovieDetail(generics.RetrieveAPIView):
+    queryset=Movie.objects.all()
+    serializer_class=MovieSerializer
